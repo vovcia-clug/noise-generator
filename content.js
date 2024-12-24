@@ -38,7 +38,9 @@ function createNoiseOverlay() {
     for (let y = 0; y < canvas.height; y++) {
       for (let x = 0; x < canvas.width; x++) {
         const i = (y * canvas.width + x) * 4;
-        const randomValue = generateNormalRandom(currentMean, currentStdDev);
+        const randomValueR = generateNormalRandom(currentMean, currentStdDev);
+        const randomValueG = generateNormalRandom(currentMean, currentStdDev);
+        const randomValueB = generateNormalRandom(currentMean, currentStdDev);
 
         // Calculate wave modulation (single wave)
         const waveModulation = Math.sin((x / currentWaveWidth) * Math.PI * 2) * 0.5 + 0.5;
@@ -46,9 +48,9 @@ function createNoiseOverlay() {
         // Apply wave modulation to alpha
         const alpha = currentAlpha * waveModulation;
 
-        data[i]     = randomValue; // red
-        data[i + 1] = randomValue; // green
-        data[i + 2] = randomValue; // blue
+        data[i]     = randomValueR; // red
+        data[i + 1] = randomValueG; // green
+        data[i + 2] = randomValueB; // blue
         data[i + 3] = alpha * 255;
       }
     }
