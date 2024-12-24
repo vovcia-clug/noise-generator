@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Noise Overlay",
+  "version": "1.0",
+  "description": "Adds random noise to web pages.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["style.css", "hide-page.css"],
+      "run_at": "document_end"
+    }
+  ]
+}
